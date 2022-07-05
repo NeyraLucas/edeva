@@ -1,0 +1,61 @@
+<div>
+  <h2>Contacto</h2>
+<form class="flex f-column" [formGroup]="formContact" (submit)="SendaData()">
+  <!-- Nombre -->
+  <mat-form-field appearance="outline">
+    <mat-label>User name</mat-label>
+    <input matInput placeholder="Write your name" formControlName="name" />
+    <mat-error *ngIf="this.formContact.get('name')?.errors?.['required']">
+      *Campo obligatorio
+    </mat-error>
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Write your email"
+      formControlName="email"
+    />
+    <mat-error *ngIf="this.formContact.get('email')?.errors?.['required']">
+      *Campo obligatorio
+    </mat-error>
+    <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="this.formContact.get('email')?.errors?.['email']">
+      *Email incorrecto
+    </mat-error>
+  </mat-form-field>
+
+  <!-- number-->
+  <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input
+      matInput
+      placeholder="Write your phone"
+      formControlName="phone"
+    />
+    <mat-error *ngIf="this.formContact.get('phone')?.errors?.['required']">
+      *Campo obligatorio
+    </mat-error>
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+
+  <!-- message-->
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <input
+      matInput
+      placeholder="Write your message"
+      formControlName="message"
+    />
+    <mat-error *ngIf="this.formContact.get('message')?.errors?.['required']">
+      *Campo obligatorio
+    </mat-error>
+    <mat-icon matSuffix>message</mat-icon>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="accent">Accent</button>
+</form>
+</div>
